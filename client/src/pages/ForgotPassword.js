@@ -62,12 +62,21 @@ const ForgotPassword = () => {
               Forgot Password
             </Typography>
             <Typography variant="body1" color="text.secondary">
-              Enter your email address and we'll send you a link to reset your password.
+              Enter your email address and we'll send you a link to reset your
+              password.
             </Typography>
           </Box>
 
-          {message && <Alert severity="success" sx={{ mb: 3 }}>{message}</Alert>}
-          {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
+          {message && (
+            <Alert severity="success" sx={{ mb: 3 }}>
+              {message}
+            </Alert>
+          )}
+          {error && (
+            <Alert severity="error" sx={{ mb: 3 }}>
+              {error}
+            </Alert>
+          )}
 
           <Paper
             elevation={isMobile ? 1 : 0}

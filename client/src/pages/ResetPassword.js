@@ -33,7 +33,9 @@ const ResetPassword = () => {
     }
 
     try {
-      const response = await api.put(`/auth/reset-password/${token}`, { password });
+      const response = await api.put(`/auth/reset-password/${token}`, {
+        password,
+      });
 
       setMessage(response.data.msg);
       setError(null);
@@ -77,8 +79,16 @@ const ResetPassword = () => {
             </Typography>
           </Box>
 
-          {message && <Alert severity="success" sx={{ mb: 3 }}>{message} Redirecting...</Alert>}
-          {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
+          {message && (
+            <Alert severity="success" sx={{ mb: 3 }}>
+              {message} Redirecting...
+            </Alert>
+          )}
+          {error && (
+            <Alert severity="error" sx={{ mb: 3 }}>
+              {error}
+            </Alert>
+          )}
 
           <Paper
             elevation={isMobile ? 1 : 0}

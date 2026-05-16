@@ -8,7 +8,7 @@ const sendEmail = async (options) => {
     transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT || 587,
-      secure: process.env.SMTP_SECURE === "true", 
+      secure: process.env.SMTP_SECURE === "true",
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -36,7 +36,7 @@ const sendEmail = async (options) => {
   };
 
   const info = await transporter.sendMail(message);
-  
+
   if (!process.env.SMTP_HOST) {
     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   }

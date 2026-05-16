@@ -149,7 +149,7 @@ exports.forgotPassword = async (req, res, next) => {
     // Assumes frontend is running on localhost:3000 during dev or the deployed URL
     const frontendUrl = process.env.FRONTEND_URL || "http://localhost:3000";
     const resetUrl = `${frontendUrl}/reset-password/${resetToken}`;
-    
+
     // Only print to console during local development for easy testing
     if (process.env.NODE_ENV === "development") {
       console.log("\n=======================================================");
@@ -171,14 +171,16 @@ exports.forgotPassword = async (req, res, next) => {
       res.status(200).json({ success: true, data: "Email sent successfully" });
     } catch (err) {
       console.error("Email sending failed:", err);
-      
+
       // Reset the token fields since the email failed
       user.resetPasswordToken = undefined;
       user.resetPasswordExpire = undefined;
       await user.save({ validateBeforeSave: false });
 
       // Return a proper 500 error in production
-      return res.status(500).json({ msg: "Email could not be sent. Please try again later." });
+      return res
+        .status(500)
+        .json({ msg: "Email could not be sent. Please try again later." });
     }
   } catch (err) {
     next(err);
@@ -222,7 +224,7 @@ exports.resetPassword = async (req, res, next) => {
           token,
           user: { id: user.id, name: user.name, email: user.email },
         });
-      }
+      },
     );
   } catch (err) {
     next(err);
