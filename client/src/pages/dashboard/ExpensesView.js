@@ -273,7 +273,7 @@ const ExpensesView = () => {
 
       {/* Stats Cards */}
       <Grid container spacing={2} sx={{ mb: 3 }}>
-        <Grid item xs={12} sm={4}>
+        <Grid xs={12} sm={4}>
           <Paper
             elevation={0}
             sx={{
@@ -292,7 +292,7 @@ const ExpensesView = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid xs={12} sm={4}>
           <Paper
             elevation={0}
             sx={{
@@ -310,7 +310,7 @@ const ExpensesView = () => {
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid xs={12} sm={4}>
           <Paper
             elevation={0}
             sx={{
@@ -349,7 +349,7 @@ const ExpensesView = () => {
 
       <Grid container spacing={3}>
         {/* Expense Table */}
-        <Grid item xs={12} md={7}>
+        <Grid xs={12} md={7}>
           <Paper
             elevation={0}
             sx={{
@@ -438,7 +438,7 @@ const ExpensesView = () => {
         </Grid>
 
         {/* Pie Chart */}
-        <Grid item xs={12} md={5}>
+        <Grid xs={12} md={5}>
           <Paper
             elevation={0}
             sx={{
@@ -506,7 +506,7 @@ const ExpensesView = () => {
             sx={{ mt: 1, display: "flex", flexDirection: "column", gap: 2.5 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={6}>
+              <Grid xs={6}>
                 <TextField
                   fullWidth
                   label="Amount (₹) *"
@@ -515,10 +515,10 @@ const ExpensesView = () => {
                   onChange={handleAmountChange}
                   error={Boolean(amountError)}
                   helperText={amountError}
-                  inputProps={{ min: 0.01, step: 0.01 }}
+                  slotProps={{ htmlInput: { min: 0.01, step: 0.01 } }}
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid xs={6}>
                 <TextField
                   fullWidth
                   select
@@ -561,7 +561,7 @@ const ExpensesView = () => {
               fullWidth
               type="date"
               label="Date"
-              InputLabelProps={{ shrink: true }}
+              slotProps={{ inputLabel: { shrink: true } }}
               value={form.date}
               onChange={(e) => setForm({ ...form, date: e.target.value })}
             />

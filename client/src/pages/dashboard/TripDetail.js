@@ -756,7 +756,7 @@ const TripDetail = () => {
               fullWidth
               type="date"
               label="Date"
-              InputLabelProps={{ shrink: true }}
+              slotProps={{ inputLabel: { shrink: true } }}
               value={expenseForm.date}
               onChange={(e) =>
                 setExpenseForm({ ...expenseForm, date: e.target.value })
@@ -799,7 +799,7 @@ const TripDetail = () => {
                   fullWidth
                   type="date"
                   label="Start Date"
-                  InputLabelProps={{ shrink: true }}
+                  slotProps={{ inputLabel: { shrink: true } }}
                   value={editForm.startDate || ""}
                   onChange={(e) =>
                     setEditForm({ ...editForm, startDate: e.target.value })
@@ -811,7 +811,7 @@ const TripDetail = () => {
                   fullWidth
                   type="date"
                   label="End Date"
-                  InputLabelProps={{ shrink: true }}
+                  slotProps={{ inputLabel: { shrink: true } }}
                   value={editForm.endDate || ""}
                   onChange={(e) =>
                     setEditForm({ ...editForm, endDate: e.target.value })
@@ -883,7 +883,7 @@ const TripDetail = () => {
           <TextField
             fullWidth
             value={shareLink}
-            InputProps={{ readOnly: true }}
+            slotProps={{ input: { readOnly: true } }}
             onClick={(e) => e.target.select()}
           />
         </DialogContent>

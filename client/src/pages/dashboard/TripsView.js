@@ -199,7 +199,7 @@ const TripsView = () => {
                   name="startDate"
                   label="Start Date *"
                   type="date"
-                  InputLabelProps={{ shrink: true }}
+                  slotProps={{ inputLabel: { shrink: true } }}
                   value={formData.startDate}
                   onChange={handleChange}
                 />
@@ -210,7 +210,7 @@ const TripsView = () => {
                   name="endDate"
                   label="End Date *"
                   type="date"
-                  InputLabelProps={{ shrink: true }}
+                  slotProps={{ inputLabel: { shrink: true } }}
                   value={formData.endDate}
                   onChange={handleChange}
                 />

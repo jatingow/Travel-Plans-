@@ -137,7 +137,7 @@ const SharedTripView = () => {
             icon: <WalletIcon color="success" />,
           },
         ].map(({ label, value, icon }) => (
-          <Grid item xs={6} sm={4} key={label}>
+          <Grid xs={6} sm={4} key={label}>
             <Paper
               elevation={0}
               sx={{
