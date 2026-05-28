@@ -364,7 +364,7 @@ const Home = () => {
 
   useEffect(() => {
     api
-      .get("/Destinations")
+      .get("/destinations")
       .then((r) => {
         setDestinations(r.data);
         setLoading(false);
