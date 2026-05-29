@@ -15,7 +15,7 @@ dotenv.config({ path: path.resolve(__dirname, "./.env") });
 const app = express();
 // When running behind a proxy (like Render), trust the proxy so express
 // and express-rate-limit can use the X-Forwarded-* headers correctly.
-app.set("trust proxy", true);
+app.set("trust proxy", 1);
 
 // Security Middleware
 app.use(helmet());
