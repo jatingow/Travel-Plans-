@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import "./Home.css";
 import api from "../services/api";
 import { addTrip } from "../redux/actions/tripActions";
-import Contact from "./pages/Contact";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 /* ── SVG SCENES ─────────────────────────────────────────────── */
 const SceneIceland = () => (
