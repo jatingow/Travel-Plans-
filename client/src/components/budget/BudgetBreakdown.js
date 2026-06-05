@@ -28,9 +28,9 @@ const BudgetBreakdown = ({
   return (
     <Card
       sx={{
-        border: "2px solid #f9d9ce",
+        border: "1px solid #e0e0e0",
         borderRadius: "20px",
-        background: "rgba(223, 247, 252, 0.86)",
+        background: "rgba(251, 251, 251, 0.86)",
         backdropFilter: "blur(10px)",
         boxShadow: "0 15px 40px rgba(0,0,0,0.10)",
         mb: 4,
@@ -151,11 +151,7 @@ const BudgetBreakdown = ({
                 </TableCell>
               </TableRow>
 
-              <TableRow
-                sx={{
-                  backgroundColor: "#E1F0F4E0",
-                }}
-              >
+              <TableRow>
                 <TableCell colSpan={2}>
                   <strong>Grand Total</strong>
                 </TableCell>

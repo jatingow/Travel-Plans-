@@ -73,23 +73,12 @@ const BudgetEstimatorPage = () => {
     localStorage.removeItem("budgetEstimator");
     localStorage.removeItem("currency");
   };
-  const gradientAnimation = `
-    @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-    }
-    `;
 
   return (
     <>
-      <style>{gradientAnimation}</style>
       <Box
         sx={{
           minHeight: "100vh",
-          background: "linear-gradient(135deg,#FFC1CC,#D8B4F8,#AEE2FF,#B9FBC0)",
-          backgroundSize: "300% 300%",
-          animation: "gradientMove 10s ease infinite",
           padding: "40px 20px",
         }}
       >

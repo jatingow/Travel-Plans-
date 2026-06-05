@@ -11,7 +11,7 @@ const BudgetForm = ({
   const inputStyle = {
     "& .MuiOutlinedInput-root": {
       borderRadius: "15px",
-      backgroundColor: "#f6f2f9",
+      backgroundColor: "#ffffff",
     },
   };
 
@@ -33,11 +33,11 @@ const BudgetForm = ({
     <Card
       sx={{
         p: 4,
-        border: "2px solid #7bb8df",
+        border: "1px solid #e0e0e0",
         borderRadius: "25px",
-        background: "rgba(225, 240, 244, 0.88)",
+        background: "rgb(247, 247, 247)",
         backdropFilter: "blur(10px)",
-        boxShadow: "0 15px 40px rgba(0,0,0,0.10)",
+        boxShadow: 3,
         mb: 5,
       }}
     >

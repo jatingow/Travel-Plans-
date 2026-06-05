@@ -15,8 +15,8 @@ const TripSummary = ({
       <Card
         sx={{
           borderRadius: "28px",
-          background: "linear-gradient(135deg,#E1F0F4E0,#f7fbff)",
-          boxShadow: "0 15px 40px rgba(0,0,0,0.10)",
+          backgroundColor: "#fff",
+          boxShadow: 3,
         }}
       >
         <CardContent>
@@ -62,15 +62,6 @@ const TripSummary = ({
             {currencySymbols[currency]}
             {convertedPerDay.toLocaleString()}
           </Typography>
-
-          <Box
-            sx={{
-              mt: 3,
-              height: "12px",
-              borderRadius: "10px",
-              background: "linear-gradient(230deg,#66BB6A,#42A5F5,#AB47BC)",
-            }}
-          />
         </CardContent>
       </Card>
     </Box>
