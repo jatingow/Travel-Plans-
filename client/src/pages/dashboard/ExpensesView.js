@@ -895,7 +895,7 @@ const ExpensesView = () => {
         </Grid>
 
         {/* Pie Chart */}
-        <Grid xs={12} md={7}>
+        <Grid xs={12} md={5}>
           <Paper
             elevation={0}
             sx={{
