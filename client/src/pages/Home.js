@@ -401,6 +401,7 @@ const Home = () => {
   const [showRecentSearches, setShowRecentSearches] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("wander-dest-section");
   const checkInRef = useRef(null);
 
   useEffect(() => {
@@ -456,6 +457,38 @@ const Home = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(() => {
+    const sections = [
+      "wander-dest-section",
+      "wander-features",
+      "wander-testimonials",
+    ];
+
+    const handleActiveSection = () => {
+      const scrollPosition = window.scrollY + 150;
+
+      sections.forEach((sectionId) => {
+        const section = document.getElementById(sectionId);
+
+        if (
+          section &&
+          scrollPosition >= section.offsetTop &&
+          scrollPosition < section.offsetTop + section.offsetHeight
+        ) {
+          setActiveSection(sectionId);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", handleActiveSection);
+    };
+  }, []);
+
+
+
 
   const handleAddTrip = (dest) => {
     // Save to recently viewed regardless of auth status
@@ -495,12 +528,12 @@ const Home = () => {
   /* Filter destinations based on "Where to" search input */
   const filteredDestinations = where.trim()
     ? (Array.isArray(destinations) ? destinations : []).filter(
-        (d) =>
-          (d.name || "").toLowerCase().includes(where.toLowerCase()) ||
-          (d.city || "").toLowerCase().includes(where.toLowerCase()) ||
-          (d.state || "").toLowerCase().includes(where.toLowerCase()) ||
-          (d.category || "").toLowerCase().includes(where.toLowerCase()),
-      )
+      (d) =>
+        (d.name || "").toLowerCase().includes(where.toLowerCase()) ||
+        (d.city || "").toLowerCase().includes(where.toLowerCase()) ||
+        (d.state || "").toLowerCase().includes(where.toLowerCase()) ||
+        (d.category || "").toLowerCase().includes(where.toLowerCase()),
+    )
     : Array.isArray(destinations)
       ? destinations
       : [];
@@ -518,13 +551,40 @@ const Home = () => {
 
         <ul className="wander-nav-links">
           <li>
-            <a href="#wander-dest-section">Destinations</a>
+            <a
+              href="#wander-dest-section"
+              className={
+                activeSection === "wander-dest-section"
+                  ? "wander-nav-active"
+                  : ""
+              }
+            >
+              Destinations
+            </a>
           </li>
           <li>
-            <a href="#wander-features">Features</a>
+            <a
+              href="#wander-features"
+              className={
+                activeSection === "wander-features"
+                  ? "wander-nav-active"
+                  : ""
+              }
+            >
+              Features
+            </a>
           </li>
           <li>
-            <a href="#wander-testimonials">Experiences</a>
+            <a
+              href="#wander-testimonials"
+              className={
+                activeSection === "wander-testimonials"
+                  ? "wander-nav-active"
+                  : ""
+              }
+            >
+              Experiences
+            </a>
           </li>
           <li>
             <Link to="/travel-checklist">Checklist</Link>
@@ -852,9 +912,8 @@ const Home = () => {
               {loading
                 ? "Loading destinations…"
                 : where.trim()
-                  ? `${filteredDestinations.length} destination${
-                      filteredDestinations.length !== 1 ? "s" : ""
-                    } found`
+                  ? `${filteredDestinations.length} destination${filteredDestinations.length !== 1 ? "s" : ""
+                  } found`
                   : "Destinations that steal hearts"}
             </div>
           </div>
@@ -985,7 +1044,7 @@ const Home = () => {
                     <div className="wander-dest-country">
                       {dest
                         ? [dest.city, dest.state].filter(Boolean).join(", ") ||
-                          item.fallbackLoc
+                        item.fallbackLoc
                         : item.fallbackLoc}
                     </div>
                   </div>
